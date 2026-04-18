@@ -5,6 +5,7 @@
   gap: 20px;
   max-width: 520px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .page > * { width: 100%; }
@@ -22,42 +23,28 @@
   flex: 1;
   background: none;
   border: none;
-  padding: 9px;
+  padding: 10px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 14px;
   color: var(--muted);
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
+  min-height: 44px;
 }
 
-.activeTab {
-  background: var(--primary);
-  color: #fff;
-}
-
-.errMsg {
-  background: #ffeef0;
-  border: 1px solid #ffd2d8;
-  color: #b00020;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-size: 14px;
-}
+.activeTab { background: var(--primary); color: #fff; }
 
 .muted { color: var(--muted); font-size: 14px; line-height: 1.6; margin-top: 4px; margin-bottom: 4px; }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 16px;
-}
+.form { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
 
 .loginRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .forgotLink {
@@ -68,6 +55,7 @@
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
+  min-height: auto;
 }
 .forgotLink:hover { color: var(--primary); }
 
@@ -87,29 +75,14 @@
   height: 1px;
   background: var(--border);
 }
-.orDivider span {
-  position: relative;
-  background: var(--surface);
-  padding: 0 10px;
-}
+.orDivider span { position: relative; background: var(--surface); padding: 0 10px; }
 
-.socialBtns {
-  display: flex;
-  gap: 10px;
-}
+.socialBtns { display: flex; gap: 10px; }
+.socialBtns button { flex: 1; }
 
-.checkboxLabel {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 14px;
-}
+.checkboxLabel { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
 
-.signupAction {
-  display: flex;
-  justify-content: flex-end;
-}
+.signupAction { display: flex; justify-content: flex-end; }
 
 .successMsg {
   background: #e9f7ef;
@@ -121,6 +94,17 @@
   font-weight: 500;
 }
 
-@media (max-width: 700px) {
-  .page { grid-template-columns: 1fr; }
+.errMsg {
+  background: #ffeef0;
+  border: 1px solid #ffd2d8;
+  color: #b00020;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) {
+  .signupAction button { width: 100%; }
+  .loginRow { flex-direction: column; align-items: flex-start; }
+  .loginRow button { width: 100%; }
 }

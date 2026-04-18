@@ -9,19 +9,13 @@
 
 .heroCard { display: flex; flex-direction: column; gap: 14px; }
 
-.heroTitle {
-  font-size: 38px;
-  line-height: 1.15;
-  margin: 0;
-}
+.heroTitle { font-size: 36px; line-height: 1.15; margin: 0; }
 
-.heroDesc { color: var(--muted); line-height: 1.6; }
+.heroDesc { color: var(--muted); line-height: 1.6; font-size: 15px; }
 
 .heroActions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.statsCard {
-  background: linear-gradient(180deg, #ffffff, #f1f6ff) !important;
-}
+.statsCard { background: linear-gradient(180deg, #ffffff, #f1f6ff) !important; }
 
 .statsHeader {
   display: flex;
@@ -48,9 +42,14 @@
 
 .muted { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }
-  .statsGrid { grid-template-columns: 1fr; }
   .grid3 { grid-template-columns: 1fr; }
-  .heroTitle { font-size: 28px; }
+}
+
+@media (max-width: 500px) {
+  .heroTitle { font-size: 26px; }
+  .statsGrid { grid-template-columns: 1fr; }
+  .heroActions { flex-direction: column; }
+  .heroActions button { width: 100%; }
 }

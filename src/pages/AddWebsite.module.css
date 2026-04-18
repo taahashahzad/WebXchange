@@ -7,11 +7,7 @@
   align-items: start;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+.form { display: flex; flex-direction: column; gap: 16px; }
 
 .fieldGroup { display: flex; flex-direction: column; gap: 8px; }
 
@@ -23,30 +19,13 @@
   font-size: 14px;
 }
 
-.range {
-  width: 100%;
-  accent-color: var(--primary);
-  cursor: pointer;
-}
+.range { width: 100%; accent-color: var(--primary); cursor: pointer; min-height: 44px; }
 
-.rangeValue {
-  font-weight: 700;
-  color: var(--primary);
-  font-size: 14px;
-}
+.rangeValue { font-weight: 700; color: var(--primary); font-size: 14px; }
 
-.twoCol {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
+.twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-.formActions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 4px;
-}
+.formActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
 
 .successMsg {
   background: #e9f7ef;
@@ -67,17 +46,12 @@
   font-size: 14px;
 }
 
-/* Tips panel */
-.tipsCard {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+.tipsCard { display: flex; flex-direction: column; gap: 14px; }
 
 .muted { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
 .previewBox {
-  height: 160px;
+  height: 140px;
   border: 1px dashed var(--border);
   border-radius: var(--radius);
   display: grid;
@@ -87,12 +61,7 @@
   background: #fafbff;
 }
 
-.previewUrl {
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 14px;
-  word-break: break-all;
-}
+.previewUrl { color: var(--primary); font-weight: 600; font-size: 14px; word-break: break-all; }
 
 .tips {
   padding-left: 18px;
@@ -116,7 +85,12 @@
 .creditTitle { font-weight: 600; font-size: 13px; color: var(--primary); }
 .creditAmount { font-size: 24px; font-weight: 800; font-family: var(--font-display); color: var(--primary); }
 
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
   .twoCol { grid-template-columns: 1fr; }
+  .formActions { flex-direction: column-reverse; }
+  .formActions button { width: 100%; }
 }

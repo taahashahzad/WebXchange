@@ -7,12 +7,12 @@
   flex-wrap: wrap;
   gap: 12px;
 }
-.title { font-size: 22px; }
+.title { font-size: 20px; }
 
 .kpiGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .midGrid {
@@ -27,20 +27,20 @@
   gap: 10px;
 }
 
-.url {
-  font-size: 13px;
-  color: var(--primary);
-  word-break: break-all;
-}
+.url { font-size: 13px; color: var(--primary); word-break: break-all; }
 
-.actions {
-  display: flex;
-  gap: 6px;
-}
+.actions { display: flex; gap: 6px; flex-wrap: wrap; }
 
 .loader { padding: 60px; text-align: center; color: var(--muted); }
 .empty  { color: var(--muted); font-size: 14px; }
-.link   { background: none; border: none; color: var(--primary); cursor: pointer; font-size: 14px; text-decoration: underline; }
+.link   {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
 
 @media (max-width: 900px) {
   .kpiGrid { grid-template-columns: repeat(2, 1fr); }
@@ -48,5 +48,10 @@
 }
 
 @media (max-width: 500px) {
+  .kpiGrid { grid-template-columns: 1fr 1fr; }
+  .quickActions button { flex: 1 1 calc(50% - 5px); }
+}
+
+@media (max-width: 380px) {
   .kpiGrid { grid-template-columns: 1fr; }
 }
