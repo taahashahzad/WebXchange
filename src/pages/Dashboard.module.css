@@ -1,0 +1,52 @@
+.page { display: flex; flex-direction: column; gap: 20px; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.title { font-size: 22px; }
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.midGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+}
+
+.quickActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.url {
+  font-size: 13px;
+  color: var(--primary);
+  word-break: break-all;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.loader { padding: 60px; text-align: center; color: var(--muted); }
+.empty  { color: var(--muted); font-size: 14px; }
+.link   { background: none; border: none; color: var(--primary); cursor: pointer; font-size: 14px; text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .midGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .kpiGrid { grid-template-columns: 1fr; }
+}

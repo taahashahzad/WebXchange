@@ -1,0 +1,120 @@
+.page { display: flex; flex-direction: column; gap: 20px; }
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sessionStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.statChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.statLabel { font-size: 12px; color: var(--muted); font-weight: 500; }
+.statValue { font-size: 28px; font-weight: 800; font-family: var(--font-display); color: var(--primary); }
+
+/* Viewer bar */
+.viewerBar {
+  background: #0b1220;
+  color: #c7d2fe;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.viewerUrl { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.urlText { color: #aab2cf; font-size: 12px; }
+
+.viewerBadges { display: flex; gap: 8px; }
+
+/* Iframe placeholder */
+.iframePlaceholder {
+  height: 360px;
+  background: repeating-linear-gradient(
+    45deg,
+    #0f172a, #0f172a 12px,
+    #111827 12px, #111827 24px
+  );
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  display: block;
+}
+
+.iframePlaceholderInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.placeholderIcon { font-size: 40px; }
+.placeholderTitle { font-size: 18px; font-weight: 700; color: #c7d2fe; }
+.placeholderSub { font-size: 13px; color: #64748b; }
+.placeholderNote { font-size: 12px; color: #475569; line-height: 1.6; }
+
+/* Controls */
+.controls { padding: 16px; }
+
+.controlActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timerLabel { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+.controlBtns { display: flex; gap: 10px; }
+
+/* Queue */
+.queue { display: flex; flex-direction: column; gap: 8px; }
+
+.queueItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fafbff;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.queueActive {
+  background: var(--primary-light);
+  border-color: #dbe3ff;
+}
+
+.queueUrl { color: var(--text); word-break: break-all; }
+
+@media (max-width: 600px) {
+  .sessionStats { grid-template-columns: 1fr; }
+  .controlActions { flex-direction: column; align-items: flex-start; }
+}

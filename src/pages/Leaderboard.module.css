@@ -1,0 +1,73 @@
+.page { display: flex; flex-direction: column; gap: 20px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.username { font-weight: 600; color: var(--primary); }
+
+.sideStats { display: flex; flex-direction: column; gap: 16px; }
+
+/* Donut chart visual */
+.pieChart { margin-top: 8px; }
+.piePlaceholder { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+.donut {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #0a73ff 0% 58%,
+    #2cc0ff 58% 90%,
+    #00c853 90% 100%
+  );
+  mask: radial-gradient(circle, transparent 40%, black 41%);
+  -webkit-mask: radial-gradient(circle, transparent 40%, black 41%);
+}
+
+.pieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  width: 100%;
+}
+
+.pieLegend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Highlights */
+.highlights { display: flex; flex-direction: column; gap: 10px; }
+.highlightRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.loadingRow {
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}

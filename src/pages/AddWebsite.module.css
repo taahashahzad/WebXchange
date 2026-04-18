@@ -1,0 +1,122 @@
+.page { display: flex; flex-direction: column; gap: 20px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldGroup { display: flex; flex-direction: column; gap: 8px; }
+
+.rangeLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.rangeValue {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.successMsg {
+  background: #e9f7ef;
+  border: 1px solid #c8efd9;
+  color: #0b7a3e;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.errMsg {
+  background: #ffeef0;
+  border: 1px solid #ffd2d8;
+  color: #b00020;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* Tips panel */
+.tipsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.muted { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+.previewBox {
+  height: 160px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 16px;
+  background: #fafbff;
+}
+
+.previewUrl {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.tips {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.creditEstimate {
+  background: var(--primary-light);
+  border: 1px solid #dbe3ff;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.creditTitle { font-weight: 600; font-size: 13px; color: var(--primary); }
+.creditAmount { font-size: 24px; font-weight: 800; font-family: var(--font-display); color: var(--primary); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .twoCol { grid-template-columns: 1fr; }
+}
