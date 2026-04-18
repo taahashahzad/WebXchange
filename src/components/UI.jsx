@@ -44,13 +44,20 @@ export function Badge({ children, variant = 'default', style = {} }) {
 // KPI block
 export function KPI({ icon, value, label, iconBg = '#eef7ff', iconColor = 'var(--primary)' }) {
   return (
-    <div className={styles.kpi}>
-      <div className={styles.kpiIcon} style={{ background: iconBg, color: iconColor }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
+      <div style={{
+        width: 42, height: 42, borderRadius: 12,
+        display: 'grid', placeItems: 'center',
+        fontSize: 18, flexShrink: 0,
+        background: iconBg, color: iconColor,
+      }}>
         {icon}
       </div>
-      <div>
-        <div className={styles.kpiValue}>{value}</div>
-        <div className={styles.kpiLabel}>{label}</div>
+      <div style={{ minWidth: 0 }}>
+        <div style={{ fontWeight: 800, fontSize: 18, fontFamily: 'var(--font-display)', wordBreak: 'break-word' }}>
+          {value}
+        </div>
+        <div style={{ color: 'var(--muted)', fontSize: 13 }}>{label}</div>
       </div>
     </div>
   );

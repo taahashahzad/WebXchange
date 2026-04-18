@@ -121,10 +121,51 @@ export default function Dashboard() {
           title={`Your Websites (${websites.length})`}
           action={<Button onClick={() => navigate('/add-website')}>Add New</Button>}
         />
-        {websites.length === 0
-          ? <p className={styles.empty}>No websites yet. <button className={styles.link} onClick={() => navigate('/add-website')}>Add your first one →</button></p>
-          : <Table headers={['Website', 'Status', 'Daily Cap', 'Geo', 'Actions']} rows={websiteRows} />
-        }
+        {websites.length === 0 ? (
+          <p className={styles.empty}>
+            No websites yet.{' '}
+            <button className={styles.link} onClick={() => navigate('/add-website')}>
+              Add your first one →
+            </button>
+          </p>
+        ) : (
+          <>
+            {/* Desktop table */}
+            <div className={styles.desktopTable}>
+              <Table
+                headers={['Website', 'Status', 'Daily Cap', 'Geo', 'Actions']}
+                rows={websiteRows}
+              />
+            </div>
+
+            {/* Mobile cards */}
+            <div className={styles.mobileCards}>
+              {websites.map(site => (
+                <div key={site.id} className={styles.siteCard}>
+                  <div className={styles.siteCardTop}>
+                    <span className={styles.siteUrl}>{site.url}</span>
+                    <Badge variant={site.status === 'active' ? 'success' : 'danger'}>
+                      {site.status.charAt(0).toUpperCase() + site.status.slice(1)}
+                    </Badge>
+                  </div>
+                  <div className={styles.siteMeta}>
+                    <span>Cap: <strong>{site.daily_cap.toLocaleString()}</strong></span>
+                    <span>Geo: <strong>{site.geo_target?.join(', ') || 'Global'}</strong></span>
+                  </div>
+                  <div className={styles.siteActions}>
+                    <Button onClick={() => navigate(`/add-website?edit=${site.id}`)}>Edit</Button>
+                    <Button onClick={() => handleToggle(site)}>
+                      {site.status === 'active' ? 'Pause' : 'Resume'}
+                    </Button>
+                    <Button onClick={() => handleDelete(site.id)} style={{ color: '#b00020' }}>
+                      Delete
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </Card>
     </div>
   );

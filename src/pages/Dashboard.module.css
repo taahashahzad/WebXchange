@@ -55,3 +55,45 @@
 @media (max-width: 380px) {
   .kpiGrid { grid-template-columns: 1fr; }
 }
+
+.desktopTable { display: block; }
+.mobileCards  { display: none; }
+
+.siteCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.siteCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.siteMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.siteMeta strong { color: var(--text); }
+
+.siteActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.siteActions button { flex: 1; }
+
+@media (max-width: 640px) {
+  .desktopTable { display: none; }
+  .mobileCards  { display: flex; flex-direction: column; gap: 12px; }
+}

@@ -62,3 +62,13 @@ button {
     padding: 16px !important;
   }
 }
+
+@media (min-width: 768px) {
+  .hidden-mobile { display: block; }
+}
+
+.show-mobile { display: flex; }
+
+@media (min-width: 768px) {
+  .show-mobile { display: none; }
+}

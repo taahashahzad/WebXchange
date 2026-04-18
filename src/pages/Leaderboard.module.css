@@ -23,11 +23,20 @@
   -webkit-mask: radial-gradient(circle, transparent 40%, black 41%);
 }
 
-.pieLegend { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); width: 100%; }
+.pieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  width: 100%;
+}
+
 .pieLegend span { display: flex; align-items: center; gap: 8px; }
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
 .highlights { display: flex; flex-direction: column; gap: 10px; }
+
 .highlightRow {
   display: flex;
   align-items: center;
@@ -38,8 +47,78 @@
   flex-wrap: wrap;
 }
 
-.loadingRow { padding: 40px; text-align: center; color: var(--muted); font-size: 14px; }
+.loadingRow {
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Mobile leaderboard cards — replaces table on small screens */
+.leaderCards { display: none; flex-direction: column; gap: 8px; }
+.leaderTable { display: block; }
+
+.leaderCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.leaderCard.top3 { background: #fffbea; border-color: #ffe2a7; }
+
+.leaderRank {
+  font-size: 20px;
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.leaderInfo { flex: 1; min-width: 0; }
+
+.leaderName {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leaderStats {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+
+.leaderStats strong { color: var(--text); }
+
+/* Side stats on mobile become a horizontal scroll row */
+.sideStatsRow {
+  display: none;
+  flex-direction: row;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sideStatsRow > * { flex-shrink: 0; min-width: 160px; }
 
 @media (max-width: 860px) {
   .grid { grid-template-columns: 1fr; }
+  /* On medium screens show both stacked normally */
+}
+
+@media (max-width: 600px) {
+  .leaderTable { display: none; }
+  .leaderCards  { display: flex; }
+  .sideStats    { display: none; }
+  .sideStatsRow { display: flex; }
 }
