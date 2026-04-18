@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Card, Button, Chip, Badge, KPI, ProgressBar } from '../components/UI';
 import { testimonials } from '../data/mockData';
 import styles from './Home.module.css';
+import { useAuth } from '../context/AuthContext';
 
 export default function Home() {
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   return (
     <div className={styles.page}>
@@ -19,7 +21,7 @@ export default function Home() {
             visits back. Geo / device targeting and anti-fraud included.
           </p>
           <div className={styles.heroActions}>
-            <Button variant="primary" onClick={() => navigate('/auth')}>Get Started</Button>
+            <Button variant="primary" onClick={() => navigate(isLoggedIn ? '/dashboard' : '/auth')}>Get Started</Button>
             <Button onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}>
               How it works
             </Button>

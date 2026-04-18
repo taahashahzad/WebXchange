@@ -40,8 +40,11 @@ export default function Auth() {
     setSignupBusy(true);
     try {
       await signUp({ email: signupForm.email, password: signupForm.password, fullName: signupForm.name });
-      setSignupMsg('✅ Check your email to confirm your account, then log in.');
       setTab('login');
+      setLoginErr('');
+      // Show confirmation message on the login tab so user actually sees it
+      setResetSent(false);
+      setSignupMsg('✅ Account created! Check your email to confirm, then log in here.');
     } catch (err) { setSignupErr(err.message); }
     finally { setSignupBusy(false); }
   }
@@ -67,6 +70,12 @@ export default function Auth() {
         <Card>
           <h2>Welcome Back</h2>
           <p className={styles.muted}>Login to continue earning and managing your campaigns.</p>
+          {/* Show this after successful signup */}
+          {signupMsg && (
+            <div className={styles.successMsg} style={{ marginTop: 12 }}>
+              {signupMsg}
+            </div>
+          )}
           <form onSubmit={handleLogin} className={styles.form}>
             <Input label="Email" type="email" placeholder="you@example.com"
               value={loginForm.email} onChange={e => setLoginForm(f => ({ ...f, email: e.target.value }))} required />

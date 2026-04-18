@@ -1,24 +1,26 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Button, KPI, SectionTitle } from '../components/UI';
+import { useAuth } from '../context/AuthContext';
 import { plans } from '../data/mockData';
 import styles from './Pricing.module.css';
 
 const FEATURES_PERKS = [
-  { icon: '✅', label: 'Fraud Protection', iconBg: '#eef7ff', iconColor: 'var(--primary)' },
+  { icon: '✅', label: 'Fraud Protection',   iconBg: '#eef7ff', iconColor: 'var(--primary)' },
   { icon: '📊', label: 'Realtime Analytics', iconBg: '#e9f7ef', iconColor: '#0b7a3e' },
-  { icon: '🛡️', label: 'Secure Exchange', iconBg: '#fff3e8', iconColor: '#8a5300' },
-  { icon: '💬', label: 'Priority Support', iconBg: '#eef7ff', iconColor: 'var(--primary)' },
+  { icon: '🛡️', label: 'Secure Exchange',    iconBg: '#fff3e8', iconColor: '#8a5300' },
+  { icon: '💬', label: 'Priority Support',   iconBg: '#eef7ff', iconColor: 'var(--primary)' },
 ];
 
 export default function Pricing() {
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   function handleCTA(plan) {
-    if (plan.id === 'enterprise') {
-      alert('Our sales team will contact you shortly (demo).');
+    if (plan.id === 'free') {
+      navigate(isLoggedIn ? '/dashboard' : '/auth');
     } else {
-      navigate('/auth');
+      alert(`The ${plan.name} plan is coming soon! We'll notify you when it's available.`);
     }
   }
 
@@ -71,8 +73,8 @@ export default function Pricing() {
         <div className={styles.faqList}>
           {[
             { q: 'How are credits calculated?', a: 'Each visit earns ~8–12 credits depending on duration and quality score. Longer views earn more.' },
-            { q: 'Is the traffic real?', a: 'Yes — all traffic comes from verified human users in the network. Anti-bot checks run continuously.' },
-            { q: 'Can I cancel anytime?', a: 'Absolutely. Pro plans are billed monthly and you can cancel or downgrade at any time from your dashboard.' },
+            { q: 'Is the traffic real?',         a: 'Yes — all traffic comes from verified human users in the network. Anti-bot checks run continuously.' },
+            { q: 'Can I cancel anytime?',        a: 'Absolutely. Pro plans are billed monthly and you can cancel or downgrade at any time from your dashboard.' },
           ].map((faq, i) => (
             <div key={i} className={styles.faqItem}>
               <div className={styles.faqQ}>Q: {faq.q}</div>

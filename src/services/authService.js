@@ -1,4 +1,6 @@
 import { supabase } from '../lib/supabaseClient';
+const SITE_URL = process.env.REACT_APP_SITE_URL || window.location.origin;
+
 
 /** Sign up with email + password. Full name stored in user metadata. */
 export async function signUp({ email, password, fullName }) {
@@ -24,7 +26,7 @@ export async function signIn({ email, password }) {
 export async function signInWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: window.location.origin + '/#/dashboard' },
+    options: { redirectTo: `${SITE_URL}/#/dashboard` },
   });
   if (error) throw error;
   return data;
@@ -39,7 +41,7 @@ export async function signOut() {
 /** Send a password reset email. */
 export async function resetPassword(email) {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: window.location.origin + '/#/auth/reset',
+    redirectTo: `${SITE_URL}/#/auth/reset`,
   });
   if (error) throw error;
 }
