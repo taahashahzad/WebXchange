@@ -90,10 +90,10 @@ export default function Auth() {
               </Button>
             </div>
           </form>
-          <div className={styles.orDivider}><span>Or continue with</span></div>
+          {/* <div className={styles.orDivider}><span>Or continue with</span></div>
           <div className={styles.socialBtns}>
             <Button onClick={handleGoogle}>🔵 Google</Button>
-          </div>
+          </div> */}
         </Card>
       )}
 
