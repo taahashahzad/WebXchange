@@ -16,6 +16,21 @@ import Auth        from './pages/Auth';
 import Pricing     from './pages/Pricing';
 import Admin       from './pages/Admin';
 
+// Handles the token in the URL after email confirmation
+function AuthRedirectHandler() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        navigate('/dashboard', { replace: true });
+      }
+    });
+  }, [navigate]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <AuthProvider>
