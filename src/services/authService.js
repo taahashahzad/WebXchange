@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabaseClient';
-
 const SITE_URL = process.env.REACT_APP_SITE_URL || window.location.origin;
+
 
 /** Sign up with email + password. Full name stored in user metadata. */
 export async function signUp({ email, password, fullName }) {
@@ -9,7 +9,6 @@ export async function signUp({ email, password, fullName }) {
     password,
     options: {
       data: { full_name: fullName },
-      emailRedirectTo: `${window.location.origin}/#/dashboard`,
     },
   });
   if (error) throw error;
