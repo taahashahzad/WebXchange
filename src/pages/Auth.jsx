@@ -174,8 +174,8 @@ export default function Auth() {
             <h2>Check your email</h2>
             <p className={styles.muted}>
               We sent a confirmation link to <strong>{signupForm.email}</strong>.
-              Click the link in the email to activate your account — you'll be
-              logged in automatically.
+              Click the link in the email to activate your account — Then
+              login again.
             </p>
             <div className={styles.confirmTips}>
               <p>Didn't get it? Check your spam folder.</p>
